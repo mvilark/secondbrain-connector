@@ -1,0 +1,7 @@
+# Used by the "Deploy to Cloudflare" button to ask you for these values.
+# Fine-grained GitHub token: Contents read+write on your vault repo only.
+GITHUB_TOKEN=
+# Your private vault repo as owner/name, e.g. jane/my-vault
+GITHUB_REPO=
+# 12+ characters. You type it once when Claude connects.
+OWNER_PASSPHRASE=

@@ -1,0 +1,37 @@
+{
+  "name": "second-brain-connector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A small remote MCP server that lets Claude read and write a markdown vault stored in a private GitHub repo.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "cloudflare": {
+    "label": "Second Brain connector",
+    "bindings": {
+      "GITHUB_TOKEN": {
+        "description": "Fine-grained GitHub token with Contents: read and write on your vault repo only."
+      },
+      "GITHUB_REPO": {
+        "description": "Your private vault repo as owner/name, e.g. jane/my-vault."
+      },
+      "OWNER_PASSPHRASE": {
+        "description": "A passphrase of 12+ characters. You type it once when Claude connects."
+      }
+    }
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "^1.2.3"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261012.1",
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.149.0"
+  }
+}
